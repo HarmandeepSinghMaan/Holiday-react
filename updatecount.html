@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Update counter</h1>
+  <h3>Current count: <span id="count">10</span></h3>
+  <button id="AddButton" onclick="addValue()">Add value <span id="count">10</span></button>
+  <button id="reducevalue" onclick="reduceValue()">Reduce value <span id="count">10</span></button>
+
+  
+</body>
+<script >
+  
+  const count=document.querySelectorAll('#count');
+  const add=document.querySelector('#AddButton');
+  const sub=document.querySelector('#reducevalue');
+
+  let number = count[0].innerHTML ? parseInt(count[0].innerHTML) : 0;
+
+
+  updateCount = () => {
+    count.forEach((element) => {
+      element.innerHTML = number;
+    });
+  };
+
+// Event listener for the add button
+  add.addEventListener('click',function(){
+    number++;
+    updateCount();
+
+  })
+  // Event listener for the reduce button
+  sub.addEventListener('click',function(){
+    number--;
+    updateCount();
+  })
+
+
+
+  // Initial count display
+  updateCount();
+</script>
+</html>
