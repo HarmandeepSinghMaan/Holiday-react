@@ -1,10 +1,11 @@
-import React, { useState,userContext } from 'react'
+import React, { useState,useContext } from 'react'
 import UserContext from '../context/context'
 
 function Login() {
   const [username,setUseranme]= useState('')
   const [password,setpassword]= useState('')
-  const {setUser} = userContext(UserContext);
+  
+  const {setUser} = useContext(UserContext)
 
   const handelSubmit=(e)=>
   {
@@ -23,9 +24,10 @@ function Login() {
       value={password}
       onChange={(e)=>setpassword(e.target.value)} />
 
-      <button>
-          onclick={handelSubmit}
-      </button>
+      <button onClick={handelSubmit}>
+  Submit
+</button>
+
       
     </div>
   )
